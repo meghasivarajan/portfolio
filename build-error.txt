@@ -1,0 +1,30 @@
+﻿16:08:28 [types] Generated 79ms
+16:08:28 [build] output: "static"
+16:08:28 [build] directory: C:\Users\Megha\Desktop\portfolio\dist\
+16:08:28 [build] Collecting build info...
+16:08:28 [build] Γ£ô Completed in 84ms.
+16:08:28 [build] Building static entrypoints...
+node.exe : 16:08:29 [ERROR] [vite] [31mx[39m Build failed 
+in 484ms
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (16:08:29 [ERROR 
+   ...failed in 484ms:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Expected "}" but found ";"
+  Location:
+    C:/Users/Megha/Desktop/portfolio/src/components/Hero.astr
+o:36:698
+  Stack trace:
+    at failureErrorWithLog (C:\Users\Megha\Desktop\portfolio\
+node_modules\esbuild\lib\main.js:1472:15)
+    at responseCallbacks.<computed> (C:\Users\Megha\Desktop\p
+ortfolio\node_modules\esbuild\lib\main.js:622:9)
+    at Socket.readFromStdout (C:\Users\Megha\Desktop\portfoli
+o\node_modules\esbuild\lib\main.js:600:7)
+    at addChunk (node:internal/streams/readable:561:12)
+    at Readable.push (node:internal/streams/readable:392:5)

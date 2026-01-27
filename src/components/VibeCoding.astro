@@ -1,0 +1,380 @@
+---
+
+---
+
+<section id="vibe-coding" class="vibe-coding">
+  <div class="container">
+    <!-- Background Effects -->
+    <div class="vibe-bg-effects">
+      <div class="lightning-bolt bolt-1">⚡</div>
+      <div class="lightning-bolt bolt-2">⚡</div>
+      <div class="lightning-bolt bolt-3">⚡</div>
+      <div class="rocket rocket-1">🚀</div>
+      <div class="rocket rocket-2">🚀</div>
+    </div>
+
+    <div class="vibe-content">
+      <div class="section-header reveal">
+        <span class="vibe-super-badge animate-pulse-glow">⚡ CORE STRENGTH</span>
+        <h2 class="section-title vibe-title">
+          Rapid Dev: Ideas to <span class="text-gradient-vibe">Reality, Fast</span>
+        </h2>
+      </div>
+
+      <div class="vibe-explanation reveal">
+        <p class="vibe-lead">
+          <strong>Rapid development</strong> is about harnessing intuition, modern tools, and AI-assisted workflows 
+          to prototype and ship functional applications. No endless planning cycles—just 
+          <span class="highlight-vibe">build, iterate, and launch</span>.
+        </p>
+      </div>
+
+      <div class="vibe-features">
+        <div class="vibe-feature reveal delay-100">
+          <div class="feature-icon">🚀</div>
+          <h4>Fast MVPs</h4>
+          <p>Transform startup ideas into working products in weeks, not months</p>
+        </div>
+        <div class="vibe-feature reveal delay-200">
+          <div class="feature-icon">🛠️</div>
+          <h4>Internal Tools</h4>
+          <p>Quick proof-of-concepts and utilities for teams and businesses</p>
+        </div>
+        <div class="vibe-feature reveal delay-300">
+          <div class="feature-icon">💻</div>
+          <h4>Apps</h4>
+          <p> Modern web apps with Angular & React, optimized for performance</p>
+        </div>
+        <div class="vibe-feature reveal delay-400">
+          <div class="feature-icon">⏱️</div>
+          <h4>Quick Turnaround</h4>
+          <p>Rapid prototypes to validate ideas before major investment</p>
+        </div>
+      </div>
+
+      <!-- Speed Metrics -->
+      <div class="speed-metrics reveal">
+        <div class="speed-timeline">
+          <div class="timeline-step">
+            <div class="step-icon">💡</div>
+            <span class="step-label">Idea</span>
+          </div>
+          <div class="timeline-connector">
+            <div class="connector-progress"></div>
+          </div>
+          <div class="timeline-step">
+            <div class="step-icon">🎨</div>
+            <span class="step-label">Design</span>
+          </div>
+          <div class="timeline-connector">
+            <div class="connector-progress"></div>
+          </div>
+          <div class="timeline-step">
+            <div class="step-icon">⚙️</div>
+            <span class="step-label">Build</span>
+          </div>
+          <div class="timeline-connector">
+            <div class="connector-progress"></div>
+          </div>
+          <div class="timeline-step active">
+            <div class="step-icon">🚀</div>
+            <span class="step-label">Launch</span>
+          </div>
+        </div>
+        <p class="speed-tagline">Typical timeline: <strong>2-4 weeks</strong></p>
+      </div>
+
+      <!-- CTA -->
+      <div class="vibe-cta reveal">
+        <div class="cta-card">
+          <span class="cta-icon">💡</span>
+          <h3>Got an Idea?</h3>
+          <p>Let's turn it into reality together. Whether it's a startup MVP, internal tool, or app concept—I can vibe code it into existence.</p>
+          <a href="#contact" class="btn btn-vibe">
+            Let's Vibe Code It
+            <span class="btn-icon">⚡</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vibe-coding {
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, #1a0a0a 50%, var(--bg-primary) 100%);
+    overflow: hidden;
+    padding: var(--space-4xl) 0;
+  }
+
+  /* Background Effects */
+  .vibe-bg-effects {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .lightning-bolt {
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.1;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .bolt-1 { top: 10%; left: 10%; animation-delay: 0s; }
+  .bolt-2 { top: 30%; right: 15%; animation-delay: 1s; }
+  .bolt-3 { bottom: 20%; left: 20%; animation-delay: 2s; }
+
+  .rocket {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: float-diagonal 6s ease-in-out infinite;
+  }
+
+  .rocket-1 { top: 40%; right: 10%; }
+  .rocket-2 { bottom: 30%; left: 5%; animation-delay: 3s; }
+
+  @keyframes float-diagonal {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, -20px); }
+  }
+
+  .vibe-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  .vibe-super-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-xl);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
+    border: 2px solid rgba(245, 158, 11, 0.5);
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-lg);
+  }
+
+  .vibe-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  /* Explanation */
+  .vibe-explanation {
+    max-width: 800px;
+    margin: 0 auto var(--space-3xl);
+    text-align: center;
+  }
+
+  .vibe-lead {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .vibe-lead strong {
+    color: #f59e0b;
+  }
+
+  .highlight-vibe {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(239, 68, 68, 0.3));
+    padding: 0.1em 0.4em;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+  }
+
+  /* Features */
+  .vibe-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .vibe-feature {
+    text-align: center;
+    padding: var(--space-xl);
+    background: rgba(245, 158, 11, 0.05);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+  }
+
+  .vibe-feature:hover {
+    border-color: #f59e0b;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .vibe-feature h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .vibe-feature p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Speed Metrics */
+  .speed-metrics {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .speed-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: var(--space-xl);
+  }
+
+  .timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .step-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--glass-border);
+    border-radius: 50%;
+    transition: var(--transition-base);
+  }
+
+  .timeline-step.active .step-icon {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(239, 68, 68, 0.3));
+    border-color: #f59e0b;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  }
+
+  .step-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .timeline-connector {
+    width: 60px;
+    height: 3px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+  }
+
+  .connector-progress {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+    animation: progress-fill 2s ease-in-out infinite;
+  }
+
+  @keyframes progress-fill {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 100%; }
+  }
+
+  .speed-tagline {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+  }
+
+  .speed-tagline strong {
+    color: #f59e0b;
+    font-size: 1.25rem;
+  }
+
+  /* CTA */
+  .vibe-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-card {
+    text-align: center;
+    max-width: 500px;
+    padding: var(--space-3xl);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1));
+    border: 2px solid rgba(245, 158, 11, 0.4);
+    border-radius: var(--radius-xl);
+    animation: glow-border-vibe 4s ease-in-out infinite;
+  }
+
+  @keyframes glow-border-vibe {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.3);
+    }
+  }
+
+  .cta-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-card h3 {
+    font-size: 1.75rem;
+    color: #f59e0b;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-card p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+  }
+
+  .btn-icon {
+    font-size: 1.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .vibe-features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .vibe-features {
+      grid-template-columns: 1fr;
+    }
+
+    .speed-timeline {
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .timeline-connector {
+      display: none;
+    }
+  }
+</style>

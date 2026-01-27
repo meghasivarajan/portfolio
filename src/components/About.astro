@@ -1,0 +1,337 @@
+---
+
+---
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">// About Me</span>
+      <h2 class="section-title">
+        Building the <span class="text-gradient">Future</span> of Web
+      </h2>
+    </div>
+
+    <div class="about-content">
+      <div class="about-visual reveal-left">
+        <div class="about-image-container">
+          <div class="about-image-frame">
+            <div class="about-image-placeholder">
+              <span class="initials">MS</span>
+            </div>
+          </div>
+          <div class="orbit-ring ring-1">
+            <span class="orbit-icon">⚛️</span>
+          </div>
+          <div class="orbit-ring ring-2">
+            <span class="orbit-icon">📱</span>
+          </div>
+          <div class="orbit-ring ring-3">
+            <span class="orbit-icon">⚡</span>
+          </div>
+        </div>
+        <div class="location-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Trivandrum, India
+        </div>
+      </div>
+
+      <div class="about-text reveal-right">
+        <div class="about-intro">
+          <p class="lead">
+            I'm a <strong>Senior Front-End Developer</strong> with <span class="highlight">4+ years</span> of experience specializing in 
+            <span class="tech-highlight">Angular</span> (v6–v19), <span class="tech-highlight">TypeScript</span>, and modern web technologies.
+          </p>
+          <p>
+            My journey has been defined by building scalable, enterprise-grade applications that solve real business problems. 
+            From healthcare analytics dashboards to HR management systems, I've crafted solutions that handle complexity with elegance.
+          </p>
+        </div>
+
+        <div class="vibe-philosophy glass-card">
+          <div class="vibe-header">
+            <span class="vibe-icon">⚡</span>
+            <h4>Rapid Frontend Development</h4>
+          </div>
+          <p>
+            Beyond enterprise architecture, I specialize in <strong>rapid application development</strong>—transforming concepts into functional 
+            solutions with speed and precision. Using <span class="tech-highlight">Angular</span>, <span class="tech-highlight">React</span>, and modern web standards, 
+            I build scalable interfaces that captivate users. No endless cycles—just efficient, high-quality code delivery.
+          </p>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item reveal delay-100">
+            <span class="stat-number">4+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item reveal delay-200">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat-item reveal delay-300">
+            <span class="stat-number">1</span>
+            <span class="stat-label">Published App</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+
+  /* Visual Side */
+  .about-visual {
+    position: relative;
+  }
+
+  .about-image-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+  }
+
+  .about-image-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    padding: 4px;
+    animation: morphing 8s ease-in-out infinite;
+  }
+
+  .about-image-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .initials {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Orbit Rings */
+  .orbit-ring {
+    position: absolute;
+    border: 1px dashed var(--glass-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .orbit-icon {
+    font-size: 1.5rem;
+    transform: translateY(-50%);
+  }
+
+  .ring-1 {
+    width: 340px;
+    height: 340px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 20s linear infinite;
+  }
+
+  .ring-2 {
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 30s linear infinite reverse;
+  }
+
+  .ring-3 {
+    width: 460px;
+    height: 460px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate 40s linear infinite;
+  }
+
+  .location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .location-badge svg {
+    color: var(--accent-cyan);
+  }
+
+  /* Text Side */
+  .about-text {
+    max-width: 600px;
+  }
+
+  .about-intro {
+    margin-bottom: var(--space-xl);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    line-height: 1.7;
+  }
+
+  .lead strong {
+    color: var(--accent-cyan);
+  }
+
+  .highlight {
+    color: var(--accent-purple);
+    font-weight: 600;
+  }
+
+  .tech-highlight {
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+  }
+
+  /* Vibe Philosophy Card */
+  .vibe-philosophy {
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(239, 68, 68, 0.05));
+  }
+
+  .vibe-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .vibe-icon {
+    font-size: 1.5rem;
+  }
+
+  .vibe-header h4 {
+    color: #f59e0b;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .vibe-philosophy p {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* Stats */
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: var(--space-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    transition: var(--transition-base);
+  }
+
+  .stat-item:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-5px);
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .about-visual {
+      order: -1;
+    }
+
+    .orbit-ring {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image-container {
+      width: 200px;
+      height: 200px;
+    }
+
+    .initials {
+      font-size: 3rem;
+    }
+  }
+</style>

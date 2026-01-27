@@ -1,0 +1,331 @@
+---
+import '../styles/global.css';
+import '../styles/animations.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "Senior Angular Developer & Vibe Coder - Building enterprise-grade web applications and shipping ideas at lightning speed" 
+} = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="Angular Developer, Frontend Developer, TypeScript, Flutter, React Native, Web Development, Vibe Coding" />
+    <meta name="author" content="Megha S" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={`${baseUrl}og-image.png`} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-screen">
+      <div class="loader-content">
+        <div class="loader-brackets">
+          <span class="bracket">{</span>
+          <span class="loader-text">MS</span>
+          <span class="bracket">}</span>
+        </div>
+        <div class="loader-bar">
+          <div class="loader-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="main-content">
+      <slot />
+    </div>
+
+    <!-- Easter Egg Message -->
+    <div id="easter-egg" class="easter-egg">
+      <div class="easter-egg-content">
+        <span class="easter-emoji">🎮</span>
+        <h3>You found the secret!</h3>
+        <p>You're a true developer. Let's build something amazing together!</p>
+        <button onclick="this.parentElement.parentElement.classList.remove('active')">Nice! 🚀</button>
+      </div>
+    </div>
+
+    <style>
+      /* Loader Screen */
+      .loader-screen {
+        position: fixed;
+        inset: 0;
+        background: var(--bg-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      .loader-screen.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .loader-content {
+        text-align: center;
+      }
+
+      .loader-brackets {
+        font-family: var(--font-mono);
+        font-size: 3rem;
+        color: var(--text-primary);
+        margin-bottom: 2rem;
+      }
+
+      .bracket {
+        color: var(--accent-cyan);
+        animation: pulse-glow 1s ease-in-out infinite;
+      }
+
+      .loader-text {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 0.5rem;
+      }
+
+      .loader-bar {
+        width: 200px;
+        height: 3px;
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-full);
+        overflow: hidden;
+      }
+
+      .loader-progress {
+        height: 100%;
+        background: var(--gradient-primary);
+        animation: loader-fill 1.5s ease forwards;
+      }
+
+      @keyframes loader-fill {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+
+      /* Custom Cursor */
+      .custom-cursor {
+        width: 8px;
+        height: 8px;
+        background: var(--accent-cyan);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 10001;
+        transition: transform 0.1s ease;
+        mix-blend-mode: difference;
+      }
+
+      .cursor-follower {
+        width: 32px;
+        height: 32px;
+        border: 1px solid var(--accent-cyan);
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+        opacity: 0.5;
+      }
+
+      .cursor-follower.hover {
+        width: 48px;
+        height: 48px;
+        background: rgba(0, 255, 255, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .custom-cursor,
+        .cursor-follower {
+          display: none;
+        }
+      }
+
+      /* Main Content */
+      .main-content {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .main-content.loaded {
+        opacity: 1;
+      }
+
+      /* Easter Egg */
+      .easter-egg {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10002;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .easter-egg.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .easter-egg-content {
+        text-align: center;
+        padding: 3rem;
+        background: var(--bg-secondary);
+        border-radius: var(--radius-xl);
+        border: 2px solid var(--accent-cyan);
+        box-shadow: var(--shadow-glow-cyan);
+        animation: scaleIn 0.5s ease;
+      }
+
+      .easter-emoji {
+        font-size: 4rem;
+        display: block;
+        margin-bottom: 1rem;
+        animation: bounce 1s ease-in-out infinite;
+      }
+
+      .easter-egg-content h3 {
+        color: var(--accent-cyan);
+        margin-bottom: 0.5rem;
+      }
+
+      .easter-egg-content p {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .easter-egg-content button {
+        padding: 0.75rem 2rem;
+        background: var(--gradient-primary);
+        border: none;
+        border-radius: var(--radius-full);
+        color: var(--bg-primary);
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .easter-egg-content button:hover {
+        transform: scale(1.05);
+      }
+    </style>
+
+    <script>
+      // Loader
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.getElementById('loader')?.classList.add('hidden');
+          document.getElementById('main-content')?.classList.add('loaded');
+        }, 1800);
+      });
+
+      // Custom Cursor
+      const cursor = document.getElementById('cursor');
+      const follower = document.getElementById('cursor-follower');
+
+      if (cursor && follower && window.innerWidth > 768) {
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX - 4 + 'px';
+          cursor.style.top = e.clientY - 4 + 'px';
+          
+          setTimeout(() => {
+            follower.style.left = e.clientX - 16 + 'px';
+            follower.style.top = e.clientY - 16 + 'px';
+          }, 50);
+        });
+
+        // Hover effect on interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .card, .skill-tag');
+        interactiveElements.forEach(el => {
+          el.addEventListener('mouseenter', () => follower.classList.add('hover'));
+          el.addEventListener('mouseleave', () => follower.classList.remove('hover'));
+        });
+      }
+
+      // Scroll Reveal
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+      
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+
+      // Konami Code Easter Egg
+      const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+      let konamiIndex = 0;
+
+      document.addEventListener('keydown', (e) => {
+        if (e.code === konamiCode[konamiIndex]) {
+          konamiIndex++;
+          if (konamiIndex === konamiCode.length) {
+            document.getElementById('easter-egg')?.classList.add('active');
+            konamiIndex = 0;
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
+
+      // Theme Toggle
+      const themeToggle = document.getElementById('theme-toggle');
+      themeToggle?.addEventListener('click', () => {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+---
+interface Achievement {
+  icon: string;
+  title: string;
+  description: string;
+  highlight?: boolean;
+}
+
+const achievements: Achievement[] = [
+  {
+    icon: "🏆",
+    title: "Top Performer Award",
+    description: "Q4 2022 - Recognized for exceptional contributions",
+    highlight: false
+  },
+  {
+    icon: "💡",
+    title: "Logicplum Ideathon Winner",
+    description: "Innovative solution for internal tooling challenges",
+    highlight: false
+  },
+  {
+    icon: "📱",
+    title: "Published App Developer",
+    description: "Weather app live on Google Play Store",
+    highlight: true
+  },
+  {
+    icon: "🎓",
+    title: "Microsoft Technology Associate",
+    description: "Certified in Python programming",
+    highlight: false
+  },
+  {
+    icon: "🥇",
+    title: "Reboot Kerala Hackathon",
+    description: "Top 15 Team - 2020 State-level competition",
+    highlight: false
+  }
+];
+---
+
+<section id="achievements" class="achievements">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">// Recognition</span>
+      <h2 class="section-title">
+        Achievements & <span class="text-gradient">Certifications</span>
+      </h2>
+    </div>
+
+    <div class="achievements-grid">
+      {achievements.map((item, index) => (
+        <div class={`achievement-card ${item.highlight ? 'highlight' : ''} reveal delay-${(index + 1) * 100}`}>
+          <div class="achievement-icon">
+            {item.icon}
+          </div>
+          <h4 class="achievement-title">{item.title}</h4>
+          <p class="achievement-desc">{item.description}</p>
+          {item.highlight && (
+            <span class="highlight-badge">⚡ Vibe Coded</span>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .achievements {
+    background: var(--bg-secondary);
+    position: relative;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .achievement-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    text-align: center;
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: var(--transition-base);
+  }
+
+  .achievement-card:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-8px);
+  }
+
+  .achievement-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .achievement-card.highlight {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(239, 68, 68, 0.05));
+  }
+
+  .achievement-card.highlight::before {
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+    transform: scaleX(1);
+  }
+
+  .achievement-card.highlight:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+  }
+
+  .achievement-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    margin: 0 auto var(--space-lg);
+    transition: var(--transition-base);
+  }
+
+  .achievement-card:hover .achievement-icon {
+    transform: scale(1.1) rotate(5deg);
+    border-color: var(--accent-cyan);
+  }
+
+  .achievement-card.highlight .achievement-icon {
+    border-color: rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.1);
+  }
+
+  .achievement-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .achievement-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .highlight-badge {
+    display: inline-block;
+    margin-top: var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
+    background: rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #f59e0b;
+  }
+</style>

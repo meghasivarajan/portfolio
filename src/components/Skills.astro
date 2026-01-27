@@ -1,0 +1,382 @@
+---
+interface Skill {
+  name: string;
+  level: number;
+}
+
+interface SkillCategory {
+  title: string;
+  icon: string;
+  skills: Skill[];
+}
+
+const enterpriseSkills: SkillCategory[] = [
+  {
+    title: "Core Technologies",
+    icon: "🎯",
+    skills: [
+      { name: "Angular", level: 95 },
+      { name: "TypeScript", level: 95 },
+      { name: "JavaScript (ES6+)", level: 90 },
+      { name: "RxJS", level: 85 },
+    ]
+  },
+  {
+    title: "UI & Styling",
+    icon: "🎨",
+    skills: [
+      { name: "HTML5", level: 95 },
+      { name: "CSS3/SCSS", level: 90 },
+      { name: "Bootstrap", level: 85 },
+      { name: "Tailwind CSS", level: 80 },
+      { name: "PrimeNG", level: 85 },
+    ]
+  },
+  {
+    title: "Architecture & State",
+    icon: "🏗️",
+    skills: [
+      { name: "NgRx", level: 80 },
+      { name: "Component Design", level: 90 },
+      { name: "Lazy Loading", level: 85 },
+      { name: "Performance Optimization", level: 85 },
+    ]
+  },
+  {
+    title: "Tools & Workflow",
+    icon: "🛠️",
+    skills: [
+      { name: "Git", level: 90 },
+      { name: "CI/CD", level: 75 },
+      { name: "Agile/JIRA", level: 85 },
+      { name: "Postman/Swagger", level: 80 },
+    ]
+  },
+];
+
+const vibeSkills = [
+  { name: "Flutter", icon: "📱", desc: "Fast MVPs, Published Apps" },
+  { name: "React Native", icon: "⚛️", desc: "Internal Tools, Real-time Features" },
+];
+
+const allTags = [
+  "Angular", "TypeScript", "JavaScript", "RxJS", "NgRx", "HTML5", "CSS3", 
+  "SCSS", "Bootstrap", "Tailwind", "PrimeNG", "Git", "REST APIs", "Jasmine", 
+  "Karma", "Highcharts", "WebSockets"
+];
+---
+
+<section id="skills" class="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">// Technical Arsenal</span>
+      <h2 class="section-title">
+        Skills & <span class="text-gradient">Expertise</span>
+      </h2>
+      <p class="section-subtitle">Technologies I use to bring ideas to life</p>
+    </div>
+
+    <!-- Floating Tags Visual -->
+    <div class="skills-cloud reveal">
+      {allTags.map((tag, i) => (
+        <span 
+          class="skill-tag" 
+          style={`--delay: ${i * 0.05}s; --float-offset: ${Math.random() * 20}px;`}
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    <!-- Enterprise Skills Grid -->
+    <div class="skills-grid">
+      {enterpriseSkills.map((category, index) => (
+        <div class={`skill-category reveal delay-${(index + 1) * 100}`}>
+          <div class="category-header">
+            <span class="category-icon">{category.icon}</span>
+            <h3 class="category-title">{category.title}</h3>
+          </div>
+          <div class="category-skills">
+            {category.skills.map(skill => (
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">{skill.name}</span>
+                  <span class="skill-level">{skill.level}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div 
+                    class="skill-progress" 
+                    style={`--progress: ${skill.level}%`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Vibe Coding Skills -->
+    <div class="vibe-skills reveal">
+      <div class="vibe-skills-header">
+        <span class="vibe-badge-large animate-pulse-glow">⚡ Rapid Build</span>
+        <h3>Vibe Coding Stack</h3>
+        <p>Ship ideas at lightning speed</p>
+      </div>
+      <div class="vibe-skills-grid">
+        {vibeSkills.map(skill => (
+          <div class="vibe-skill-card">
+            <span class="vibe-skill-icon">{skill.icon}</span>
+            <h4>{skill.name}</h4>
+            <p>{skill.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills {
+    position: relative;
+    background: var(--bg-primary);
+  }
+
+  /* Skills Cloud */
+  .skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-4xl);
+    padding: var(--space-xl);
+  }
+
+  .skill-tag {
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: var(--transition-base);
+    animation: float 6s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    box-shadow: var(--shadow-glow-cyan);
+    transform: translateY(-5px) scale(1.05);
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  .skill-category {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    transition: var(--transition-base);
+  }
+
+  .skill-category:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-5px);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .category-icon {
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-bg);
+    border-radius: var(--radius-md);
+  }
+
+  .category-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .category-skills {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .skill-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+  }
+
+  .skill-name {
+    color: var(--text-secondary);
+  }
+
+  .skill-level {
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+  }
+
+  .skill-bar {
+    height: 4px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+  }
+
+  .skill-progress {
+    height: 100%;
+    width: var(--progress);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    transition: width 1s ease;
+  }
+
+  /* Vibe Skills */
+  .vibe-skills {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(239, 68, 68, 0.05));
+    border: 2px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3xl);
+    text-align: center;
+    animation: glow-border-vibe 4s ease-in-out infinite;
+  }
+
+  @keyframes glow-border-vibe {
+    0%, 100% {
+      border-color: rgba(245, 158, 11, 0.3);
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
+    }
+    50% {
+      border-color: rgba(239, 68, 68, 0.5);
+      box-shadow: 0 0 40px rgba(239, 68, 68, 0.2);
+    }
+  }
+
+  .vibe-skills-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .vibe-badge-large {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2));
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #f59e0b;
+    margin-bottom: var(--space-md);
+  }
+
+  .vibe-skills-header h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+  }
+
+  .vibe-skills-header p {
+    color: var(--text-muted);
+    margin: 0 auto;
+  }
+
+  .vibe-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .vibe-skill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    transition: var(--transition-base);
+  }
+
+  .vibe-skill-card:hover {
+    border-color: #f59e0b;
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.2);
+  }
+
+  .vibe-skill-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .vibe-skill-card h4 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+  }
+
+  .vibe-skill-card p {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .vibe-skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Animate skill bars on scroll
+  const skillBars = document.querySelectorAll('.skill-progress');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        (entry.target as HTMLElement).style.width = (entry.target as HTMLElement).style.getPropertyValue('--progress');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  skillBars.forEach(bar => {
+    (bar as HTMLElement).style.width = '0';
+    observer.observe(bar);
+  });
+</script>

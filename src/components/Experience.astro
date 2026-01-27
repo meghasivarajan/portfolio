@@ -1,0 +1,272 @@
+---
+interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  current: boolean;
+  achievements: string[];
+  note?: string;
+}
+
+const experiences: Experience[] = [
+  {
+    company: "Logicplum India",
+    role: "Front-End Developer",
+    period: "Aug 2021 – Present",
+    current: true,
+    achievements: [
+      "Lead Angular development for enterprise healthcare analytics platform serving 100+ healthcare facilities",
+      "Architected and implemented complex data visualization dashboards using Highcharts with drill-down capabilities",
+      "Reduced initial load time by 40% through lazy loading and performance optimization techniques",
+      "Mentored junior developers and established coding standards for the front-end team",
+      "Contributed to rapid prototyping initiatives, building internal tools with Flutter"
+    ],
+    note: "Also contributed to vibe coding initiatives for internal tools and prototypes"
+  }
+];
+---
+
+<section id="experience" class="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">// Career Journey</span>
+      <h2 class="section-title">
+        Work <span class="text-gradient">Experience</span>
+      </h2>
+    </div>
+
+    <div class="timeline">
+      {experiences.map((exp, index) => (
+        <div class={`timeline-item ${exp.current ? 'current' : ''} reveal delay-${(index + 1) * 100}`}>
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+            <div class="marker-line"></div>
+          </div>
+          
+          <div class="timeline-content">
+            <div class="experience-header">
+              <div class="experience-main">
+                <h3 class="company-name">{exp.company}</h3>
+                <span class="role-title">{exp.role}</span>
+              </div>
+              <div class="experience-meta">
+                <span class={`period-badge ${exp.current ? 'current' : ''}`}>
+                  {exp.current && <span class="current-indicator"></span>}
+                  {exp.period}
+                </span>
+              </div>
+            </div>
+
+            <ul class="achievements-list">
+              {exp.achievements.map(achievement => (
+                <li>{achievement}</li>
+              ))}
+            </ul>
+
+            {exp.note && (
+              <div class="experience-note">
+                <span class="note-icon">⚡</span>
+                {exp.note}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience {
+    background: var(--bg-primary);
+    position: relative;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: var(--space-xl);
+    padding-bottom: var(--space-3xl);
+    position: relative;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-item:last-child .marker-line {
+    display: none;
+  }
+
+  /* Timeline Marker */
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 24px;
+  }
+
+  .marker-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--bg-tertiary);
+    border: 3px solid var(--glass-border);
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition-base);
+  }
+
+  .timeline-item.current .marker-dot {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+
+  .marker-line {
+    width: 2px;
+    flex-grow: 1;
+    background: linear-gradient(to bottom, var(--accent-cyan), transparent);
+    margin-top: var(--space-sm);
+  }
+
+  /* Timeline Content */
+  .timeline-content {
+    flex-grow: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    transition: var(--transition-base);
+  }
+
+  .timeline-item.current .timeline-content {
+    border-color: var(--accent-cyan);
+  }
+
+  .timeline-content:hover {
+    transform: translateX(10px);
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .company-name {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-xs);
+  }
+
+  .role-title {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+  }
+
+  .period-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  .period-badge.current {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+
+  .current-indicator {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-cyan);
+    border-radius: 50%;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .achievements-list {
+    list-style: none;
+    margin-bottom: var(--space-lg);
+  }
+
+  .achievements-list li {
+    position: relative;
+    padding-left: var(--space-xl);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .achievements-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+    font-size: 1.1rem;
+  }
+
+  .achievements-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .experience-note {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: #f59e0b;
+    font-style: italic;
+  }
+
+  .note-icon {
+    font-size: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .timeline-item {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .timeline-marker {
+      flex-direction: row;
+      width: auto;
+    }
+
+    .marker-line {
+      display: none;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+    }
+
+    .experience-header {
+      flex-direction: column;
+    }
+  }
+</style>
