@@ -106,18 +106,11 @@ const socialLinks = [
 
     /* Taglines */
     .hero-taglines {
-      margin-bottom: var(--space-2xl);
-    }
-
-    .tagline-primary {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
       gap: var(--space-md);
-      font-size: 1.25rem;
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
     }
 
     .vibe-badge {
@@ -134,9 +127,18 @@ const socialLinks = [
       animation: pulse-glow 2s ease-in-out infinite;
     }
 
+    .tagline-primary {
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      text-align: center;
+      margin: 0;
+    }
+
     .tagline-secondary {
       font-size: 1.1rem;
       color: var(--text-secondary);
+      text-align: center;
+      margin: 0;
     }
 
     /* Terminal */
@@ -194,6 +196,16 @@ const socialLinks = [
       display: inline-block;
       color: var(--accent-cyan);
       animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 5px rgba(245, 158, 11, 0.3); }
+      50% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.5); }
     }
 
     /* CTA */
@@ -277,8 +289,11 @@ const socialLinks = [
       }
 
       .tagline-primary {
-        flex-direction: column;
-        gap: var(--space-sm);
+        font-size: 1.1rem;
+      }
+
+      .tagline-secondary {
+        font-size: 1rem;
       }
     }
   </style>
@@ -305,8 +320,8 @@ const socialLinks = [
 
     <!-- Taglines -->
     <div class="hero-taglines reveal delay-300">
+      <span class="vibe-badge">⚡ Frontend Specialist</span>
       <p class="tagline-primary">
-        <span class="vibe-badge">⚡ Frontend Specialist</span>
         Building Scalable & High-Performance Web Apps
       </p>
       <p class="tagline-secondary">
@@ -337,7 +352,6 @@ const socialLinks = [
 
     <!-- CTA Buttons -->
     <div class="hero-cta reveal delay-500">
-      <!-- Buttons kept -->
       <a href="#projects" class="btn btn-primary">View Projects</a>
     </div>
 
