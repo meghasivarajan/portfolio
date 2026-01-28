@@ -67,7 +67,7 @@ const projects: Project[] = [
     ],
     type: 'vibe',
     badges: ['🚀 Published on Play Store', '⚡ AI Assisted'],
-    link: 'https://play.google.com/store',
+    link: 'https://play.google.com/store/apps/details?id=com.seahousevillas.guest&pcampaignid=web_share',
     timeframe: 'Concept to Launch: 3 weeks'
   },
   {
@@ -133,13 +133,6 @@ const vibeProjects = projects.filter(p => p.type === 'vibe');
                 <li>{h}</li>
               ))}
             </ul>
-            
-            <button class="project-expand" data-project={project.id}>
-              View Details
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </button>
           </article>
         ))}
       </div>
@@ -438,3 +431,4 @@ const vibeProjects = projects.filter(p => p.type === 'vibe');
     }
   }
 </style>
+
